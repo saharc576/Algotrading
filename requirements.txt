@@ -4,3 +4,4 @@ telegram~=0.0.1
 Jinja2~=3.0.2
 yfinance==0.1.70
 pandas==1.4.2
+DateTime~=4.4
