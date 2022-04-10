@@ -26,7 +26,6 @@ current_users = []
 logger = logging.getLogger(__name__)
 
 # set redis to store found sure-bets with timeout
-r = RedisConfig.R.value
 
 
 # Define a few command handlers. These usually take the two arguments update and
@@ -66,13 +65,7 @@ def broadcast_message(msg: dict):
 
 def generate_automated_message(msg: dict):
     template = env.get_template("telegram_message.tpl")
-    result = template.render(stock_name=msg["stock_name"], buy_or_sell=msg["buy_or_sell"])
+    result = template.render(stock_name=msg["stock_name"], buy_or_sell=msg["buy_or_sell"], num_of_shares=msg["num_of_shares"])
 
     return result
 
-
-
-
-
-if __name__ == '__main__':
-    start_bot()
