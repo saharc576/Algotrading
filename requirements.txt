@@ -1,7 +1,8 @@
-twitterscraper==0.2.7
 python-telegram-bot==13.11
 telegram~=0.0.1
 Jinja2~=3.0.2
 yfinance==0.1.70
 pandas==1.4.2
 DateTime~=4.4
+numpy==1.22.2
+
