@@ -36,6 +36,23 @@ def find_cointegrated_pairs(data):
                 pairs.append((keys[i], keys[j]))
     return score_matrix, pvalue_matrix, pairs
 
+def get_historical_Data(tickers):
+    """This function returns a pd dataframe with all of the adjusted closing information"""
+    data = pd.DataFrame()
+    names = list()
+    for i in tickers:
+        data = pd.concat([data, pd.DataFrame(yf.download(i, start=datetime(2020, 10, 27), end=datetime(2021, 10, 27)).iloc[:,4])], axis = 1)
+        names.append(i)
+    data.columns = names
+    return data
+
+# ticks = ["DPZ", "AAPL", "GOOG", "AMD", "GME", "SPY", "NFLX", "BA", "WMT","TWTR","GS","XOM","NKE","FEYE", "FB","BRK-B", "MSFT"] #Name of company (Dominos pizza)
+# d = get_historical_Data(ticks)
+# print(d.shape)
+# # Most Recent Data
+# d.tail()
+
+
 def trade(S1, S2, window1, window2):
     
     # If window length is 0, algorithm doesn't make sense, so exit
