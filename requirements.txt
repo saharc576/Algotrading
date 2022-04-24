@@ -5,4 +5,7 @@ yfinance==0.1.70
 pandas==1.4.2
 DateTime~=4.4
 numpy==1.22.2
-
+yahoo-fin==0.8.9.1
+statsmodels==0.13.2
+matplotlib~=3.4.1
+seaborn~=0.11.2

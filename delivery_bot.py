@@ -61,11 +61,15 @@ def broadcast_message(msg: dict):
         text=payload_to_send)
 
     print("[Telegram-bot] sent message")
+    return True
 
 
 def generate_automated_message(msg: dict):
     template = env.get_template("telegram_message.tpl")
-    result = template.render(stock_name=msg["stock_name"], buy_or_sell=msg["buy_or_sell"], num_of_shares=msg["num_of_shares"])
+    result = template.render(stock_name=msg["stock_name"],
+                             buy_or_sell=msg["buy_or_sell"],
+                             num_of_shares=msg["num_of_shares"]
+                             )
 
     return result
 
