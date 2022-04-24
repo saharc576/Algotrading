@@ -6,8 +6,8 @@ Our goal involves the following:
 
 * **Part 1**: Creating a model that test for stationarity.
 * **Part 2**: Creating a model that test for cointegration.
-* **Part 3**: Test for cointegrated pairs among the dataset.
-* **Part 4**: Notify on a found pair and alert to buy / sell.
+* **Part 3**: Test and find cointegrated pairs among the dataset.
+* **Part 4**: Alert to buy / sell.
 
 
 Stationarity:
@@ -29,6 +29,7 @@ Correlation VS Cointegration:
     Sometimes, (even almost perfectly) correlated stocks have BIG spread once they separating.
     This causes a big risk when buying / selling them.
     What we are looking for basically is two stocks that are "tied together".
+    Or more 'mathematically', they are linear dependent.
     This is cointegration. 
     It is as if the stocks are bind together by an elastic band.
 
