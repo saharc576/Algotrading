@@ -4,6 +4,30 @@
     1) Find 2 assets that move similarly with eachother (whether it be a negative or positive correlation)
     2) Sell the 'overvalued' stock and buy the 'undervalued' stock -- A common signal to use to triger the purchase of a pair trade is to use the Price Ratio (Stock A / Stock B). If the ratio changes significantly, then you know it is time to trade. 'Significance' can be measured with standard deviation.
 
+## Step 1 - Indicator
+    Here we are trying to create a signal that tells us if the ratio is a buy or a sell at the next instant in time, i.e our prediction variable Y:
+    Y = Ratio is buy (1) or sell (-1)
+    Y(t)= Sign( Ratio(t+1) — Ratio(t) )
+    Note we don’t need to predict actual stock prices, or even actual value of ratio (though we could), just the direction of next move in ratio
+
+
+## Step 2 - Collect data
+    Pull data from Yahoo finance (or any other reliable source).
+    We are using the following data: daily intervals for trading days over last 10 years (~2500 data points): Open, Close, High, Low and Trading Volume
+
+## Step 3 - Split data (train and test)
+    Split the data 80% - 20%
+    Train using Random Forest. 
+    Test model.
+
+## Step 4 - 
+    We are looking for signals to buy or sell our securities, buy the ratio of their prices.
+    Since the are cointegrated, and move around the mean, it is only reasonable that our signals will use features that relate to the mean value.
+    - rolling mean
+    - standard deviation
+    - z-score
+    https://medium.com/auquan/pairs-trading-data-science-7dbedafcfe5a
+
 ## Goal
 
 Our goal involves the following:
@@ -23,11 +47,9 @@ Stationarity:
     ** If we used non-stationary data, it doesn't say to much. The mean of it is redundent.
 
 
-Cointegration: 
-    specify co-movement of price, it is a long-term relationship
-
-Correlation:
-    specify the co-movement of return, it is a short-term relationship
+Cointegration, very similar to correlation, means that the ratio between two series will vary around a mean. The two series, Y and X follow the follwing:
+Y = ⍺ X + e
+where ⍺ is the constant ratio and e is white noise
 
 Correlation VS Cointegration:
     Sometimes, (even almost perfectly) correlated stocks have BIG spread once they separating.
