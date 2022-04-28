@@ -19,5 +19,6 @@ def get_interval_ticker(ticker: str, start_date="07/04/2021", end_date="", inter
 
 if __name__ == "__main__":
     msft = get_ticker("MSFT")
-    # print(msft.info)
-    print(get_interval_ticker("amzn"))
+    print(msft.financials)
+    print(msft.history)
+    # print(get_interval_ticker("amzn"))

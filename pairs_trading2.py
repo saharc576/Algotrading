@@ -3,7 +3,9 @@ import pandas as pd
 import statsmodels
 import statsmodels.api as sm
 from statsmodels.tsa.stattools import coint, adfuller
-
+import yfinance as yf
+from yahoo_fin.stock_info import get_data
+from datetime import datetime
 import matplotlib.pyplot as plt
 import seaborn as sns; 
 sns.set(style="whitegrid")
@@ -46,11 +48,6 @@ def get_historical_Data(tickers):
     data.columns = names
     return data
 
-# ticks = ["DPZ", "AAPL", "GOOG", "AMD", "GME", "SPY", "NFLX", "BA", "WMT","TWTR","GS","XOM","NKE","FEYE", "FB","BRK-B", "MSFT"] #Name of company (Dominos pizza)
-# d = get_historical_Data(ticks)
-# print(d.shape)
-# # Most Recent Data
-# d.tail()
 
 
 def trade(S1, S2, window1, window2):
@@ -96,3 +93,10 @@ def trade(S1, S2, window1, window2):
             
             
     return money
+
+if __name__ == "__main__":
+    ticks = ["DPZ", "AAPL", "GOOG", "AMD", "GME", "SPY", "NFLX", "BA", "WMT","TWTR","GS","XOM","NKE","FEYE", "FB","BRK-B", "MSFT"] #Name of company (Dominos pizza)
+    d = get_historical_Data(ticks)
+    print(d.shape)
+    # Most Recent Data
+    d.tail()
